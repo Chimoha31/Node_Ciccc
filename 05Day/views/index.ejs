@@ -1,0 +1,9 @@
+<%- include('header'); %> <% for(let myPets of data) {%>
+<ul>
+  <li>
+    <h3><%- myPets.name %></h3>
+    <p><%- myPets.age %> years old</p>
+    <%- myPets.gender %> 
+  </li>
+</ul>
+<% } %> <%- include('footer'); %>
