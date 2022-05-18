@@ -1,17 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Barriecito&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500&display=swap");
 
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* background: rgb(151, 205, 115);
-  background: radial-gradient(
-    circle,
-    rgba(151, 205, 115, 1) 0%,
-    rgba(252, 199, 70, 1) 100%
-  );
-   */
   width: 100%;
   height: 100vh;
 }
@@ -39,23 +32,40 @@ body {
 }
 
 .image {
-  margin-top: 2rem;
   width: 100%;
 }
 
 .image img {
   display: block;
-  width: 400px;
+  width: 380px;
   margin: 0 auto;
   border-radius: 5px;
   box-shadow: 5px 5px 5px rgba(180, 176, 133, 0.74);
 }
 
-.content p {
+.content {
+  margin-top: 3rem;
+}
+
+.upper_sentence p,
+.upper_sentence a,
+.middle_sentence p,
+.below_sentence p {
+  display: block;
   width: 90%;
   text-align: center;
+  margin: 0 auto;
   font-size: 1.2rem;
-  font-family: 'Zen Maru Gothic', sans-serif;
+  font-family: "Zen Maru Gothic", sans-serif;
+}
+
+.upper_sentence a {
+  font-size: 1rem;
+  padding: 2rem 0;
+}
+
+.middle_sentence p {
+  padding-top: 2rem;
 }
 
 .btn {
@@ -64,27 +74,55 @@ body {
 }
 
 .btn button {
-  font-family: 'Zen Maru Gothic', sans-serif;
+  font-family: "Zen Maru Gothic", sans-serif;
   display: block;
   margin: 0 auto;
   width: 160px;
   height: 48px;
   background-color: rgb(253, 198, 94);
   color: #fff;
+  cursor: pointer;
   font-size: 1rem;
   border: none;
   border-radius: 5px;
   box-shadow: 2px 2px 5px rgba(36, 35, 35, 0.74);
 }
 
-.below_sentence p{
+.below_sentence p {
   font-size: 1rem;
-  margin: 0 auto;
-  margin-top: 5rem;
+  margin-top: 3rem;
 }
 
 h5 {
   text-align: center;
+}
+
+.sns_icons {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.sns_icons i {
+  padding: 0.3rem 1rem;
+  font-size: 2.4rem;
+  cursor: pointer;
+}
+
+.fa-linkedin {
+  color: rgb(12, 143, 250);
+}
+
+.fa-twitter-square {
+  color: rgb(107, 194, 245);
+}
+
+.fa-facebook-square {
+  color: rgb(18, 87, 167);
+}
+.fa-youtube-square {
+  color: rgb(241, 40, 40);
 }
 
 footer {
@@ -92,5 +130,11 @@ footer {
 }
 
 footer .footer {
+  padding-top: 2rem;
   text-align: center;
+}
+@media (min-width: 767px) {
+  .image img {
+    width: 600px;
+  }
 }
