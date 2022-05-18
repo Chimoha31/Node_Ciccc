@@ -102,12 +102,10 @@ app.delete("/api/v1/posts/:id", (req, res) => {
   const id = req.params.id;
   posts.map((post) => {
     if(post.id == id) {
-      
+
     }
   })
 })
-
-
 
 
 app.listen(PORT, () => {
