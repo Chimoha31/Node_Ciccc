@@ -6,7 +6,7 @@ const Student = require("./models/student");
 
 app.use(express.json());
 
-const mongoURL = `mongodb+srv://chiho:chiho@ciccc-may08.fhcts.mongodb.net/?retryWrites=true&w=majority`;
+const mongoURL = process.env.MONGDB_URL;
 
 // Connect to mongodb --------------------------------------
 mongoose.connect(mongoURL, (err) => {

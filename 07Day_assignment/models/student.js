@@ -13,10 +13,11 @@ const StudentSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  studentRollNumber: Number,
-  required: true
+  studentRollNumber: {
+    type: Number,
+    required: true,
+  },
 });
 
 const Student = mongoose.model("StudentSchema", StudentSchema);
-
-module.exports = Student
+module.exports = Student;
