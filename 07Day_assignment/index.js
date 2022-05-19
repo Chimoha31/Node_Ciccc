@@ -47,8 +47,7 @@ app.get("/api/v1/students/:id", (req, res) => {
   Student.findById(id)
     .then((data) => {
       return (
-        re,
-        s.status(200).json({
+        res.status(200).json({
           message: "Successfully get a student data",
           data: data,
         })
