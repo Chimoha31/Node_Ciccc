@@ -14,7 +14,7 @@ const StudentSchema = mongoose.Schema({
     required: true,
   },
   studentRollNumber: {
-    type: Number,
+    type: String,
     required: true,
   },
 });

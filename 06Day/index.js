@@ -3,7 +3,7 @@ const app = express();
 const mongoose = require("mongoose");
 const PORT = 5000;
 const Student = require("./models/student");
-require('dotenv').config();
+require("dotenv").config();
 
 app.use(express.json());
 
@@ -33,8 +33,8 @@ app.get("/api/v1/students", (req, res) => {
     })
     .catch((err) => {
       return res.status(500).json({
-        message: "There wa an error",
-        err
+        message: "There was an error",
+        err,
       });
     });
 });
@@ -45,14 +45,14 @@ app.get("/api/v1/students/:id", (req, res) => {
   Student.findById(id)
     .then((data) => {
       return res.status(200).json({
-        message: "Succesfully fetched to student list",
+        message: "Successfully fetched to a student list",
         data: data,
       });
     })
     .catch((err) => {
       return res.status(500).json({
         message: "There was an error",
-        err
+        err,
       });
     });
 });
@@ -69,17 +69,16 @@ app.post("/api/v1/students", async (req, res) => {
   try {
     const data = await student.save();
     return res.status(201).json({
-        message: "Succesfully created a student!",
-        data
-    })
-} catch(error) {
+      message: "Succesfully created a student!",
+      data,
+    });
+  } catch (error) {
     return res.status(500).json({
-        message: "There was an error fetching the data",
-        error
-    })
-}
-
-})
+      message: "There was an error fetching the data",
+      error,
+    });
+  }
+});
 
 app.listen(PORT, () => {
   console.log(`Teddy is running at PORT ${PORT} 🐶`);
