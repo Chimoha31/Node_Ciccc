@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require("mongoose");
 const PORT = 5000;
 const Student = require("./models/student");
+require('dotenv').config();
 
 app.use(express.json());
 
@@ -33,7 +34,7 @@ app.get("/api/v1/students", (req, res) => {
     .catch((err) => {
       return res.status(500).json({
         message: "There wa an error",
-        err: err,
+        err
       });
     });
 });
@@ -51,7 +52,7 @@ app.get("/api/v1/students/:id", (req, res) => {
     .catch((err) => {
       return res.status(500).json({
         message: "There was an error",
-        err: err,
+        err
       });
     });
 });
