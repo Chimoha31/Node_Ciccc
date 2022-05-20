@@ -46,12 +46,10 @@ app.get("/api/v1/students/:id", (req, res) => {
   const id = req.params.id;
   Student.findById(id)
     .then((data) => {
-      return (
-        res.status(200).json({
-          message: "Successfully get a student data",
-          data: data,
-        })
-      );
+      return res.status(200).json({
+        message: "Successfully get a student data",
+        data: data,
+      });
     })
     .catch((err) => {
       return res.status(500).json({
@@ -60,7 +58,7 @@ app.get("/api/v1/students/:id", (req, res) => {
     });
 });
 
-// Create student data for mongodb
+// Create student data for mongodb-------------------------
 // save()
 app.post("/api/v1/students", async (req, res) => {
   const newStudent = {
@@ -72,19 +70,59 @@ app.post("/api/v1/students", async (req, res) => {
   const student = new Student(newStudent);
 
   try {
-   const data = student.save()
+    const data = student.save();
+
     return res.status(201).json({
       message: "Successfully created a student data !",
       data: data,
-    })
+    });
   } catch (err) {
     return res.status(500).json({
       message: "There was an error",
       err: err,
-    })
+    });
   }
 });
 
+// Edit student data-----------------------------------
+// findOneAndUpdate()
+app.put("/api/v1/students/:id", (req, res) => {
+  const id = req.params.id;
+  const body = req.body;
+  Student.findOneAndUpdate({ _id: id }, body, {
+    returnOriginal: false,
+  })
+    .then((data) => {
+      return res.status(200).json({
+        message: "Succesfully updated the student data !",
+        data: data,
+      });
+    })
+    .catch((err) => {
+      return res.status(500).json({
+        message: "There was an error to update..",
+        err: err,
+      });
+    });
+});
+
+// Delete Student data ------------------------------
+// findOneAndDelete()
+app.delete("/api/v1/students/:id", (req, res) => {
+  const id = req.params.id;
+  Student.findOneAndDelete({_id:id}).then((data) => {
+    return res.status(200).json({
+      message: "Succesfully deleted the student data",
+    })
+  }).catch((err) => {
+    return res.status(500).json({
+      message: "There was an error to delete...",
+      err: err,
+    })
+  })
+})
+
+//-------------------------------------------------------
 app.listen(PORT, () => {
   console.log("Teddy is running 🐶 !");
 });
