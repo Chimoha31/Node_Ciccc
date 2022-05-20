@@ -8,6 +8,7 @@ const App = () => {
   const [studentCollege, setStudentCollege] = useState("");
   const [studentAge, setStudentAge] = useState("");
   const [studentRollNumber, setStudentRollNumber] = useState("");
+  const [studentsData, setStudentsData] = useState([]);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -27,12 +28,13 @@ const App = () => {
       });
   };
 
-  const refleshHandle = (e) => {
+  const refreshHandle = (e) => {
     e.preventDefault();
     axios
       .get("http://localhost:5000/api/v1/students")
       .then((response) => {
-        alert(response.data.message);
+        alert("Successfully refresh data");
+        setStudentsData(response.data.data);
       })
       .catch((err) => {
         alert(err.message);
@@ -73,7 +75,7 @@ const App = () => {
       </div>
 
       <div className="p-5">
-        <button onClick={refleshHandle}>Refresh</button>
+        <button onClick={refreshHandle}>Refresh</button>
         <Table striped bordered hover size="sm">
           <thead>
             <tr>
@@ -84,12 +86,14 @@ const App = () => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Chiho</td>
-              <td>Cornerstone</td>
-              <td>30</td>
-              <td>101</td>
-            </tr>
+            {studentsData.map((data) => (
+              <tr key={data._id}>
+                <td>{data.studentName}</td>
+                <td>{data.studentCollege}</td>
+                <td>{data.studentAge}</td>
+                <td>{data.studentRollNumber}</td>
+              </tr>
+            ))}
           </tbody>
         </Table>
       </div>
