@@ -1,9 +1,8 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
-const Student = require("./models/student");
 const StudentRoutes = require("./routes/student")
-var cors = require('cors');
+const cors = require('cors');
 const PORT = 5000;
 require("dotenv").config();
 
