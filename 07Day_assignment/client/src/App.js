@@ -75,7 +75,7 @@ const App = () => {
       </div>
 
       <div className="p-5">
-        <button onClick={refreshHandle}>Refresh</button>
+        <button onClick={refreshHandle}>REFRESH</button>
         <Table striped bordered hover size="sm">
           <thead>
             <tr>
