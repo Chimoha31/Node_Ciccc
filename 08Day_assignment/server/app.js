@@ -5,18 +5,15 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const AuthorRoutes = require('./routes/author');
 const BookRoutes = require('./routes/book');
-
 require('dotenv').config();
 
+
 const mongoURL = process.env.MONGDB_URL;
-
-
-// We have app.use for introducing middlewares
 app.use(express.json())
-
-// Cors middleware asks the browser to allow resource sharing from different PORT Numbers
+// Ask the browser to allow resource sharing from different PORT Numbers
 app.use(cors());
 
+// Connect to Mongodb --------------------------------------------------------
 mongoose.connect(mongoURL, (error) => {
     if (error) {
         console.error(`There was an error connecting database, ${error}`);
@@ -24,6 +21,13 @@ mongoose.connect(mongoURL, (error) => {
         console.log("Succefully connected to Database");
     }
 })
+//-----------------------------------------------------------------------------
+
+// Check on browser ------------------
+app.get("/", (req, res) => {
+    res.send("Hello mongodb !!");
+})
+//------------------------------------
 
 app.use('/api/v1/authors', AuthorRoutes);
 app.use('/api/v1/books', BookRoutes);
