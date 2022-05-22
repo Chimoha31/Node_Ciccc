@@ -23,8 +23,10 @@ const Author = () => {
       .catch((error) => {
         alert(error.message);
       });
-      navigate('/books');
+      // navigate('/books');
   };
+
+
 
   return (
     <div className="h-screen flex flex-col justify-center items-center">
