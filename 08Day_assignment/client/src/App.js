@@ -14,8 +14,8 @@ const App = () => {
     <Fragment>
       <Router>
         <Routes>
-          <Route path="/author" element={<Author />} />
-          <Route path="/book" element={<Book />} />
+          <Route path="/authors" element={<Author />} />
+          <Route path="/books" element={<Book />} />
           <Route path="/booklist" element={<BookList />} />
         </Routes>
       </Router>
